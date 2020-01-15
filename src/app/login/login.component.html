@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="wrapper">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="assets/user.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form #form="ngForm" (ngSubmit)="login(form)" novalidate>
+
+      <input name="email" ngModel required #email="ngModel" type="email" id="email" class="fadeIn second"   placeholder="login" >
+      <input name="password" ngModel required #password="ngModel" type="password" id="password" class="fadeIn third"  placeholder="password">
+
+      <div *ngIf="showError" class="alert alert-danger" role="alert">
+        Invalid credentials
+      </div>
+
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>

@@ -1,12 +1,11 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-  <a class="navbar-brand" [routerLink]="['']">Nexus-Way</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+
+<nav class="navbar navbar-expand-md  navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" [routerLink]="['']">Home</a>
-      <a class="nav-item nav-link" [routerLink]="['login']" >Login</a>
+      <a class="nav-item nav-link" [routerLink]="['login']" *ngIf="!authService.isConnected()" >Login</a>
+      <a class="nav-item nav-link" *ngIf="authService.isConnected()" >{{ email }}</a>
+      <a class="nav-item nav-link" [routerLink]="['/']" *ngIf="authService.isConnected()" (click)="logout()" >Logout</a>
+      <a class="nav-item nav-link text-right" [routerLink]="['']">Home</a>
     </div>
   </div>
 </nav>
